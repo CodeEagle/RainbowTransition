@@ -1,0 +1,509 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		168BED1C1DC9C41200D85E62 /* RainbowTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 168BED1A1DC9C41200D85E62 /* RainbowTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		168BED291DC9C4B000D85E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED281DC9C4B000D85E62 /* AppDelegate.swift */; };
+		168BED2B1DC9C4B000D85E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED2A1DC9C4B000D85E62 /* ViewController.swift */; };
+		168BED301DC9C4B000D85E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168BED2F1DC9C4B000D85E62 /* Assets.xcassets */; };
+		168BED331DC9C4B000D85E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168BED311DC9C4B000D85E62 /* LaunchScreen.storyboard */; };
+		168BED3E1DC9C4EF00D85E62 /* RainbowDragPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */; };
+		168BED3F1DC9C4EF00D85E62 /* RainbowNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */; };
+		168BED401DC9C4EF00D85E62 /* RainbowPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */; };
+		168BED411DC9C4EF00D85E62 /* RainbowPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */; };
+		168BED421DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */; };
+		168BED451DC9C50D00D85E62 /* RootNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED431DC9C50D00D85E62 /* RootNavi.swift */; };
+		168BED461DC9C50D00D85E62 /* RootTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED441DC9C50D00D85E62 /* RootTabBar.swift */; };
+		292A02F9791E7EF88C82998A /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
+		9300D02BEAE2C97951DD1F29 /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		168BED171DC9C41200D85E62 /* RainbowTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RainbowTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		168BED1A1DC9C41200D85E62 /* RainbowTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RainbowTransition.h; sourceTree = "<group>"; };
+		168BED1B1DC9C41200D85E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		168BED261DC9C4B000D85E62 /* DemoForRainbow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoForRainbow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		168BED281DC9C4B000D85E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		168BED2A1DC9C4B000D85E62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		168BED2F1DC9C4B000D85E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		168BED321DC9C4B000D85E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		168BED341DC9C4B000D85E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowDragPop.swift; sourceTree = "<group>"; };
+		168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowNavigation.swift; sourceTree = "<group>"; };
+		168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowPopAnimator.swift; sourceTree = "<group>"; };
+		168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowPushAnimator.swift; sourceTree = "<group>"; };
+		168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Rainbow.swift"; sourceTree = "<group>"; };
+		168BED431DC9C50D00D85E62 /* RootNavi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavi.swift; sourceTree = "<group>"; };
+		168BED441DC9C50D00D85E62 /* RootTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBar.swift; sourceTree = "<group>"; };
+		56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KVOBlock.framework; path = Carthage/Build/iOS/KVOBlock.framework; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		168BED131DC9C41200D85E62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				292A02F9791E7EF88C82998A /* KVOBlock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		168BED231DC9C4B000D85E62 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9300D02BEAE2C97951DD1F29 /* KVOBlock.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		168BED0D1DC9C41200D85E62 = {
+			isa = PBXGroup;
+			children = (
+				168BED381DC9C4EF00D85E62 /* Sources */,
+				168BED191DC9C41200D85E62 /* RainbowTransition */,
+				168BED271DC9C4B000D85E62 /* DemoForRainbow */,
+				168BED181DC9C41200D85E62 /* Products */,
+				797DDD0189BC8644DD2D580D /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		168BED181DC9C41200D85E62 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				168BED171DC9C41200D85E62 /* RainbowTransition.framework */,
+				168BED261DC9C4B000D85E62 /* DemoForRainbow.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		168BED191DC9C41200D85E62 /* RainbowTransition */ = {
+			isa = PBXGroup;
+			children = (
+				168BED1A1DC9C41200D85E62 /* RainbowTransition.h */,
+				168BED1B1DC9C41200D85E62 /* Info.plist */,
+			);
+			path = RainbowTransition;
+			sourceTree = "<group>";
+		};
+		168BED271DC9C4B000D85E62 /* DemoForRainbow */ = {
+			isa = PBXGroup;
+			children = (
+				168BED431DC9C50D00D85E62 /* RootNavi.swift */,
+				168BED441DC9C50D00D85E62 /* RootTabBar.swift */,
+				168BED281DC9C4B000D85E62 /* AppDelegate.swift */,
+				168BED2A1DC9C4B000D85E62 /* ViewController.swift */,
+				168BED2F1DC9C4B000D85E62 /* Assets.xcassets */,
+				168BED311DC9C4B000D85E62 /* LaunchScreen.storyboard */,
+				168BED341DC9C4B000D85E62 /* Info.plist */,
+			);
+			path = DemoForRainbow;
+			sourceTree = "<group>";
+		};
+		168BED381DC9C4EF00D85E62 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */,
+				168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */,
+				168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */,
+				168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */,
+				168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		797DDD0189BC8644DD2D580D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		168BED141DC9C41200D85E62 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				168BED1C1DC9C41200D85E62 /* RainbowTransition.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		168BED161DC9C41200D85E62 /* RainbowTransition */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 168BED1F1DC9C41200D85E62 /* Build configuration list for PBXNativeTarget "RainbowTransition" */;
+			buildPhases = (
+				168BED121DC9C41200D85E62 /* Sources */,
+				168BED131DC9C41200D85E62 /* Frameworks */,
+				168BED141DC9C41200D85E62 /* Headers */,
+				168BED151DC9C41200D85E62 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = RainbowTransition;
+			productName = RainbowTransition;
+			productReference = 168BED171DC9C41200D85E62 /* RainbowTransition.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		168BED251DC9C4B000D85E62 /* DemoForRainbow */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 168BED371DC9C4B000D85E62 /* Build configuration list for PBXNativeTarget "DemoForRainbow" */;
+			buildPhases = (
+				168BED221DC9C4B000D85E62 /* Sources */,
+				168BED231DC9C4B000D85E62 /* Frameworks */,
+				168BED241DC9C4B000D85E62 /* Resources */,
+				B60FD7EF0556FBA41C084F1E /* 🤖Carthage */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DemoForRainbow;
+			productName = DemoForRainbow;
+			productReference = 168BED261DC9C4B000D85E62 /* DemoForRainbow.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		168BED0E1DC9C41200D85E62 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = LawLincoln;
+				TargetAttributes = {
+					168BED161DC9C41200D85E62 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = L5W9FHSX92;
+						ProvisioningStyle = Automatic;
+					};
+					168BED251DC9C4B000D85E62 = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = L5W9FHSX92;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 168BED111DC9C41200D85E62 /* Build configuration list for PBXProject "RainbowTransition" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 168BED0D1DC9C41200D85E62;
+			productRefGroup = 168BED181DC9C41200D85E62 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				168BED161DC9C41200D85E62 /* RainbowTransition */,
+				168BED251DC9C4B000D85E62 /* DemoForRainbow */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		168BED151DC9C41200D85E62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		168BED241DC9C4B000D85E62 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				168BED331DC9C4B000D85E62 /* LaunchScreen.storyboard in Resources */,
+				168BED301DC9C4B000D85E62 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B60FD7EF0556FBA41C084F1E /* 🤖Carthage */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/KVOBlock.framework",
+			);
+			name = "🤖Carthage";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		168BED121DC9C41200D85E62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				168BED401DC9C4EF00D85E62 /* RainbowPopAnimator.swift in Sources */,
+				168BED411DC9C4EF00D85E62 /* RainbowPushAnimator.swift in Sources */,
+				168BED3F1DC9C4EF00D85E62 /* RainbowNavigation.swift in Sources */,
+				168BED421DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift in Sources */,
+				168BED3E1DC9C4EF00D85E62 /* RainbowDragPop.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		168BED221DC9C4B000D85E62 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				168BED451DC9C50D00D85E62 /* RootNavi.swift in Sources */,
+				168BED2B1DC9C4B000D85E62 /* ViewController.swift in Sources */,
+				168BED291DC9C4B000D85E62 /* AppDelegate.swift in Sources */,
+				168BED461DC9C50D00D85E62 /* RootTabBar.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		168BED311DC9C4B000D85E62 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				168BED321DC9C4B000D85E62 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		168BED1D1DC9C41200D85E62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		168BED1E1DC9C41200D85E62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		168BED201DC9C41200D85E62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L5W9FHSX92;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = RainbowTransition/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.RainbowTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		168BED211DC9C41200D85E62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = L5W9FHSX92;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = RainbowTransition/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.RainbowTransition;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		168BED351DC9C4B000D85E62 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L5W9FHSX92;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = DemoForRainbow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.DemoForRainbow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		168BED361DC9C4B000D85E62 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = L5W9FHSX92;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				INFOPLIST_FILE = DemoForRainbow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.SelfStudio.DemoForRainbow;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		168BED111DC9C41200D85E62 /* Build configuration list for PBXProject "RainbowTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				168BED1D1DC9C41200D85E62 /* Debug */,
+				168BED1E1DC9C41200D85E62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		168BED1F1DC9C41200D85E62 /* Build configuration list for PBXNativeTarget "RainbowTransition" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				168BED201DC9C41200D85E62 /* Debug */,
+				168BED211DC9C41200D85E62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		168BED371DC9C4B000D85E62 /* Build configuration list for PBXNativeTarget "DemoForRainbow" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				168BED351DC9C4B000D85E62 /* Debug */,
+				168BED361DC9C4B000D85E62 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 168BED0E1DC9C41200D85E62 /* Project object */;
+}
