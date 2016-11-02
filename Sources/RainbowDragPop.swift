@@ -52,11 +52,12 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
             transitioning?(false)
             start = false
             if interacting {
-                if panGesture.velocity(in: panGesture.view!).x > 0 {
+                let canFinish = (offset.x / panGesture.view!.bounds.width) > 0.5
+                let slieToEnd = panGesture.velocity(in: panGesture.view!).x > 0
+                if canFinish || slieToEnd {
                     popAnimator.finish()
                     finish()
-                }
-                else {
+                } else {
                     popAnimator.cancel()
                     cancel()
                 }

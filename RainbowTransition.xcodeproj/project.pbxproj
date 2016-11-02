@@ -24,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16297D421DC9DACF001137F6 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		168BED171DC9C41200D85E62 /* RainbowTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RainbowTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		168BED1A1DC9C41200D85E62 /* RainbowTransition.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RainbowTransition.h; sourceTree = "<group>"; };
 		168BED1B1DC9C41200D85E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -66,6 +67,7 @@
 		168BED0D1DC9C41200D85E62 = {
 			isa = PBXGroup;
 			children = (
+				16297D421DC9DACF001137F6 /* Cartfile */,
 				168BED381DC9C4EF00D85E62 /* Sources */,
 				168BED191DC9C41200D85E62 /* RainbowTransition */,
 				168BED271DC9C4B000D85E62 /* DemoForRainbow */,
