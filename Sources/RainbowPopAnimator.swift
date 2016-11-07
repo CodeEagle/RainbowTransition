@@ -43,15 +43,11 @@ final class RainbowPopAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         fromColor = fromColorSource?.navigationBarInColor?()
         
         let containerView = transitionContext.containerView
-        let shadowMask = UIView(frame: containerView.bounds)
-        shadowMask.backgroundColor = UIColor.black
-        shadowMask.alpha = 0.3
         
         let finalToFrame = transitionContext.finalFrame(for: toVC)
-        toVC.view.frame = finalToFrame.offsetBy(dx: -finalToFrame.width/2, dy: 0)
+        toVC.view.frame = finalToFrame.offsetBy(dx: -finalToFrame.width, dy: 0)
         
         containerView.insertSubview(toVC.view, belowSubview: fromVC.view)
-        containerView.insertSubview(shadowMask, aboveSubview: toVC.view)
         
         let duration = transitionDuration(using: transitionContext)
         
@@ -60,7 +56,6 @@ final class RainbowPopAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         let animation: () -> () = {
             fromVC.view.frame = fromVC.view.frame.offsetBy(dx: fromVC.view.frame.width, dy: 0)
             toVC.view.frame = finalToFrame
-            shadowMask.alpha = 0
             if let navigationColor = nextColor {
                 fromVC.navigationController?.navigationBar.df_setBackgroundColor(navigationColor)
             }
@@ -68,7 +63,6 @@ final class RainbowPopAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         let finish: (Bool) -> () = {[weak self]
             _ in
             self?.animating = false
-            shadowMask.removeFromSuperview()
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, delay: 0, options: .curveLinear, animations: animation, completion:finish)

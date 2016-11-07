@@ -20,15 +20,13 @@ final class RainbowPushAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let fromColorSource = fromVC as? RainbowColorSource
         let toColorSource = toVC as? RainbowColorSource
         
-        var nextColor: UIColor?
-        nextColor = fromColorSource?.navigationBarOutColor?()
-        nextColor = toColorSource?.navigationBarInColor?()
+        let nextColor = toColorSource?.navigationBarInColor?() ?? fromColorSource?.navigationBarOutColor?()
 
         let containerView = transitionContext.containerView
-        let shadowMask = UIView(frame: containerView.bounds)
-        shadowMask.backgroundColor = UIColor.black
-        shadowMask.alpha = 0
-        containerView.addSubview(shadowMask)
+        
+        
+        
+        
         containerView.addSubview(toVC.view)
         
         // Layout
@@ -39,15 +37,15 @@ final class RainbowPushAnimator: NSObject, UIViewControllerAnimatedTransitioning
         let duration = transitionDuration(using: transitionContext)
         let animation: () -> () = {
             toVC.view.frame = finalToFrame
-            let finalFromframe = originFromFrame.offsetBy(dx: -originFromFrame.width / 2, dy: 0)
+            let finalFromframe = originFromFrame.offsetBy(dx: -originFromFrame.width, dy: 0)
             fromVC.view.frame = finalFromframe
-            shadowMask.alpha = 0.3
+            
             guard let navigationColor = nextColor else { return }
             fromVC.navigationController?.navigationBar.df_setBackgroundColor(navigationColor)
         }
         let finish: (Bool) -> () = { _ in
             fromVC.view.frame = originFromFrame
-            shadowMask.removeFromSuperview()
+            
             transitionContext.completeTransition(!transitionContext.transitionWasCancelled)
         }
         UIView.animate(withDuration: duration, delay: 0, options: .curveEaseIn, animations: animation, completion: finish)
