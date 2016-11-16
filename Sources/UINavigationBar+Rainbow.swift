@@ -21,7 +21,7 @@ private struct _RKeys_ {
 
 extension UINavigationController {
 
-    public func enableRainbowTransition(with color: UIColor = .white) {
+    public func enableRainbowTransition(with color: UIColor = .white, shadow enable: Bool = true) {
         let rain = RainbowNavigation()
         rain.wireTo(navigationController: self)
         rain.transitioning = {
@@ -29,6 +29,7 @@ extension UINavigationController {
             self?.navigationBar.transcationing = b
         }
         navigationBar.df_setBackgroundColor(color)
+        navigationBar.backgroundView?.enableShadow(enable: enable)
         rainbow = rain
     }
 
@@ -81,6 +82,16 @@ private final class NavigationBarrOverlay: UIView {
         gMask.opacity = 0
         return gMask
     }()
+    
+    fileprivate func enableShadow(enable: Bool = true) {
+        if enable {
+            if shadowMask.superlayer != layer {
+                layer.addSublayer(shadowMask)
+            }
+        } else {
+            shadowMask.removeFromSuperlayer()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
@@ -151,7 +162,7 @@ extension UINavigationBar {
         set { objc_setAssociatedObject(self, &_RKeys_.transitioning, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
     
-    private var backgroundView: NavigationBarrOverlay? {
+    fileprivate var backgroundView: NavigationBarrOverlay? {
         get { return objc_getAssociatedObject(self, &_RKeys_.kBackgroundViewKey) as? NavigationBarrOverlay }
         set { objc_setAssociatedObject(self, &_RKeys_.kBackgroundViewKey, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }

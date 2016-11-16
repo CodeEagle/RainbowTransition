@@ -29,7 +29,7 @@ class ViewController: UIViewController, RainbowColorSource {
     }
 
     func navigationBarInColor() -> UIColor {
-        return .white
+        return .clear
     }
     
     @IBAction func p() {

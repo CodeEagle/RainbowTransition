@@ -89,6 +89,6 @@ final class RootTabBar: UITabBarController {
 }
 extension RootTabBar: RainbowColorSource {
     func navigationBarInColor() -> UIColor {
-        return .white
+        return .clear
     }
 }
