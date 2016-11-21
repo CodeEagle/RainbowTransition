@@ -57,11 +57,13 @@ class TBViewController: UIViewController, RainbowColorSource {
         tableView.statusBarResponder = self
         //fd_interactivePopDisabled = true
         // Do any additional setup after loading the view, typically from a nib.
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.transparent(with: tableView)
+        navigationController?.disableDrag(in: type(of: self))
     }
 
     func navigationBarInColor() -> UIColor {

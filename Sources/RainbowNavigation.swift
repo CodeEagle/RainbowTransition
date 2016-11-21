@@ -14,12 +14,18 @@ import UIKit
 
 // MARK: - RainbowNavigation
 final class RainbowNavigation: NSObject, UINavigationControllerDelegate {
+    
+    var disableDragViewControllers: [UIViewController.Type]  {
+        get { return dragPop.disableDragViewControllers }
+        set {  dragPop.disableDragViewControllers = newValue }
+    }
 
-    fileprivate weak var navigationController: UINavigationController?
-
-    fileprivate lazy var pushAnimator = RainbowPushAnimator()
-    fileprivate lazy var popAnimator = RainbowPopAnimator()
-    fileprivate lazy var dragPop = RainbowDragPop()
+    private weak var navigationController: UINavigationController?
+    
+    private lazy var pushAnimator = RainbowPushAnimator()
+    private lazy var popAnimator = RainbowPopAnimator()
+    private lazy var dragPop = RainbowDragPop()
+    private lazy var poping = false
     
     var transitioning: ((Bool) -> ())?
 
@@ -37,7 +43,9 @@ final class RainbowNavigation: NSObject, UINavigationControllerDelegate {
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         transitioning?(true)
+        poping = false
         if operation == .push { return pushAnimator }
+        poping = true
         return popAnimator
     }
     

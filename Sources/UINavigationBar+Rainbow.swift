@@ -37,6 +37,13 @@ extension UINavigationController {
         get { return objc_getAssociatedObject(self, &_RKeys_.rainbow) as? RainbowNavigation }
         set { objc_setAssociatedObject(self, &_RKeys_.rainbow, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
+    
+    public func disableDrag(in vc: UIViewController.Type) {
+        if rainbow?.disableDragViewControllers.contains(where: { (t) -> Bool in return vc == t }) == false {
+            rainbow?.disableDragViewControllers.append(vc)
+        }
+    }
+
 }
 
 private class Wrapper { fileprivate weak var vc: UIViewController? }

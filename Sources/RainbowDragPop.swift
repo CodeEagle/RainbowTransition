@@ -8,6 +8,8 @@
 import UIKit
 final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
 
+    var disableDragViewControllers: [UIViewController.Type] = []
+    
     private(set) var interacting = false
     var transitioning: ((Bool) -> ())?
     
@@ -25,8 +27,13 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
         set { self.completionSpeed = newValue }
     }
 
-
     @objc private func handlePan(_ panGesture: UIPanGestureRecognizer) {
+        if disableDragViewControllers.contains(where: { (t) -> Bool in
+            guard let vc = navigationController.topViewController else { return false }
+            return  type(of: vc) == t
+        }) {
+            return
+        }
         let offset = panGesture.translation(in: panGesture.view)
         let velocity = panGesture.velocity(in: panGesture.view)
         if velocity.x <= 0 && offset.x <= 0 { return }
