@@ -46,6 +46,7 @@ class TBViewController: UIViewController, RainbowColorSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
+        navigationController?.navigationBar.shadow(enable: true)
         view.backgroundColor = .white
         automaticallyAdjustsScrollViewInsets = false
         let v = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300))
@@ -64,6 +65,10 @@ class TBViewController: UIViewController, RainbowColorSource {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.transparent(with: tableView)
         navigationController?.disableDrag(in: type(of: self))
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        navigationController?.navigationBar.shadow(enable: false)
     }
 
     func navigationBarInColor() -> UIColor {

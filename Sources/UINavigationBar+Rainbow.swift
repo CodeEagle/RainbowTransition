@@ -162,6 +162,8 @@ extension UINavigationBar {
         backgroundView?.removeFromSuperview()
         backgroundView = nil
     }
+    
+    public func shadow(enable: Bool) { backgroundView?.enableShadow(enable: enable) }
 
     // MARK: Properties
     var transcationing: Bool {
