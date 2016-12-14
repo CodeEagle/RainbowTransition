@@ -64,7 +64,7 @@ extension UIScrollView {
         set { objc_setAssociatedObject(self, &_RKeys_.alphaColor, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
     
-    fileprivate func updateColor(with alpha: CGFloat) {
+    public func updateColor(with alpha: CGFloat) {
         alphaColor = alphaColor.withAlphaComponent(alpha)
         statusBarResponder?.setNeedsStatusBarAppearanceUpdate()
     }
