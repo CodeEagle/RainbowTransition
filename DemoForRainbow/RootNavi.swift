@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import FDFullscreenPopGesture
+import FDFullscreenPopGesture
 #if !PACKING_FOR_APPSTORE
     import RainbowTransition
 #endif
@@ -42,7 +42,7 @@ final class RootNavi: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        //fd_fullscreenPopGestureRecognizer.isEnabled = true
+        fd_fullscreenPopGestureRecognizer.isEnabled = true
         enableRainbowTransition(with: .clear, shadow: false)
     }
 

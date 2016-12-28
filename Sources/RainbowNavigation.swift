@@ -42,6 +42,11 @@ final class RainbowNavigation: NSObject, UINavigationControllerDelegate {
     }
 
     func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        let tt = type(of: toVC)
+        let gestureDisable =  disableDragViewControllers.contains(where: { (t) -> Bool in
+            return  tt == t
+        })
+        dragPop.panGesture.isEnabled = !gestureDisable
         transitioning?(true)
         poping = false
         if operation == .push { return pushAnimator }

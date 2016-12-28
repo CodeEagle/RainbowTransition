@@ -1,2 +1,1 @@
-github "CodeEagle/KVOBlock"
-#github "CodeEagle/FDFullscreenPopGesture"
+git "git@github.com:CodeEagle/KVOBlock.git"

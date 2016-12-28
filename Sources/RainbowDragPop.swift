@@ -6,20 +6,30 @@
 //
 //
 import UIKit
+import KVOBlock
 final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
 
-    var disableDragViewControllers: [UIViewController.Type] = []
+    var disableDragViewControllers: [UIViewController.Type] = [] {
+        didSet {
+            let gestureDisable =  disableDragViewControllers.contains(where: { (t) -> Bool in
+                guard let value = navigationController?.topViewController else { return false }
+                return type(of: value) == t
+            })
+            panGesture.isEnabled = !gestureDisable
+        }
+    }
     
     private(set) var interacting = false
     var transitioning: ((Bool) -> ())?
     
     private var start = false
+    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(RainbowDragPop.handlePan(_:)))
     weak var navigationController: UINavigationController! {
         didSet {
-            let panGesture = UIPanGestureRecognizer(target: self, action: #selector(RainbowDragPop.handlePan(_:)))
             navigationController?.view.addGestureRecognizer(panGesture)
         }
     }
+    
     weak var popAnimator: RainbowPopAnimator!
 
     override var completionSpeed: CGFloat {
@@ -28,12 +38,6 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
     }
 
     @objc private func handlePan(_ panGesture: UIPanGestureRecognizer) {
-        if disableDragViewControllers.contains(where: { (t) -> Bool in
-            guard let vc = navigationController.topViewController else { return false }
-            return  type(of: vc) == t
-        }) {
-            return
-        }
         let offset = panGesture.translation(in: panGesture.view)
         let velocity = panGesture.velocity(in: panGesture.view)
         if velocity.x <= 0 && offset.x <= 0 { return }

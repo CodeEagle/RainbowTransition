@@ -1,1 +1,2 @@
-github "CodeEagle/KVOBlock" "0.1.3"
+git "git@github.com:CodeEagle/FDFullscreenPopGesture.git" "1.2"
+git "git@github.com:CodeEagle/KVOBlock.git" "0.1.3"

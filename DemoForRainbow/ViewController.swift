@@ -16,6 +16,7 @@ class ViewController: UIViewController, RainbowColorSource {
         let v = UIView(frame: UIScreen.main.bounds)
         v.backgroundColor = .white
         view.addSubview(v)
+        fd_interactivePopDisabled = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(ViewController.p))
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -26,6 +27,7 @@ class ViewController: UIViewController, RainbowColorSource {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        navigationController?.disableDrag(in: type(of: self))
     }
 
     func navigationBarInColor() -> UIColor {
@@ -50,12 +52,13 @@ class TBViewController: UIViewController, RainbowColorSource {
         view.backgroundColor = .white
         automaticallyAdjustsScrollViewInsets = false
         let v = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300))
-        v.backgroundColor = .orange
+        v.backgroundColor = .green
         tableView.tableHeaderView = v
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         tableView.statusBarResponder = self
+        fd_interactivePopDisabled = true
         //fd_interactivePopDisabled = true
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -64,7 +67,7 @@ class TBViewController: UIViewController, RainbowColorSource {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         navigationController?.navigationBar.transparent(with: tableView)
-        navigationController?.disableDrag(in: type(of: self))
+        navigationController?.disableDrag(in: TBViewController.self)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -100,7 +103,19 @@ extension TBViewController: UITableViewDataSource, UITableViewDelegate {
         let vc = DTBViewController(nibName: nil, bundle: nil)
         show(vc, sender: nil)
     }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        
+    }
 }
+
 
 
 
@@ -114,7 +129,7 @@ class DTBViewController: UIViewController, RainbowColorSource {
         view.backgroundColor = .white
         automaticallyAdjustsScrollViewInsets = false
         let v = UIView(frame: CGRect(x: 0, y: 0, width: view.bounds.width, height: 300))
-        v.backgroundColor = .orange
+        v.backgroundColor = .blue
         tableView.tableHeaderView = v
         tableView.delegate = self
         tableView.dataSource = self
