@@ -37,7 +37,7 @@ final class RainbowPopAnimator: NSObject, UIViewControllerAnimatedTransitioning 
         
         toColor = toColorSource?.navigationBarInColor?() ?? fromColorSource?.navigationBarOutColor?()
         fromColor = fromColorSource?.navigationBarInColor?()
-        
+        let nextColor = toColor
         let containerView = transitionContext.containerView
         
         let finalToFrame = transitionContext.finalFrame(for: toVC)
