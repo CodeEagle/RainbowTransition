@@ -49,6 +49,7 @@ final class RainbowNavigation: NSObject, UINavigationControllerDelegate {
         dragPop.panGesture.isEnabled = !gestureDisable
         transitioning?(true)
         poping = false
+        if !UIView.areAnimationsEnabled { UIView.setAnimationsEnabled(true) }
         if operation == .push { return pushAnimator }
         poping = true
         return popAnimator
