@@ -8,9 +8,7 @@
 
 import UIKit
 import FDFullscreenPopGesture
-#if !PACKING_FOR_APPSTORE
-    import RainbowTransition
-#endif
+
 extension RootNavi {
     static var window: UIWindow {
         let win = UIWindow(frame: UIScreen.main.bounds)

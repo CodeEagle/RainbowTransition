@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10285E241E28A0BF00C463D3 /* RainbowDragPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */; };
+		10285E251E28A0BF00C463D3 /* RainbowNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */; };
+		10285E261E28A0BF00C463D3 /* RainbowPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */; };
+		10285E271E28A0BF00C463D3 /* RainbowPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */; };
+		10285E281E28A0BF00C463D3 /* UINavigationBar+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */; };
 		108A6F051E13B57B005519BC /* FDFullscreenPopGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108A6F041E13B57B005519BC /* FDFullscreenPopGesture.framework */; };
 		168BED1C1DC9C41200D85E62 /* RainbowTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 168BED1A1DC9C41200D85E62 /* RainbowTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		168BED291DC9C4B000D85E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED281DC9C4B000D85E62 /* AppDelegate.swift */; };
@@ -279,9 +284,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				168BED451DC9C50D00D85E62 /* RootNavi.swift in Sources */,
+				10285E271E28A0BF00C463D3 /* RainbowPushAnimator.swift in Sources */,
 				168BED2B1DC9C4B000D85E62 /* ViewController.swift in Sources */,
+				10285E241E28A0BF00C463D3 /* RainbowDragPop.swift in Sources */,
+				10285E281E28A0BF00C463D3 /* UINavigationBar+Rainbow.swift in Sources */,
 				168BED291DC9C4B000D85E62 /* AppDelegate.swift in Sources */,
+				10285E251E28A0BF00C463D3 /* RainbowNavigation.swift in Sources */,
 				168BED461DC9C50D00D85E62 /* RootTabBar.swift in Sources */,
+				10285E261E28A0BF00C463D3 /* RainbowPopAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

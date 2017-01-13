@@ -46,7 +46,9 @@ final class RainbowNavigation: NSObject, UINavigationControllerDelegate {
         let gestureDisable =  disableDragViewControllers.contains(where: { (t) -> Bool in
             return  tt == t
         })
-        dragPop.panGesture.isEnabled = !gestureDisable
+        if operation == .push {
+            dragPop.panGesture.isEnabled = !gestureDisable
+        }
         transitioning?(true)
         poping = false
         if !UIView.areAnimationsEnabled { UIView.setAnimationsEnabled(true) }

@@ -9,21 +9,32 @@ import UIKit
 import KVOBlock
 final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
 
+    deinit {
+        print("fuck")
+    }
+    
     var disableDragViewControllers: [UIViewController.Type] = [] {
         didSet {
-            let gestureDisable =  disableDragViewControllers.contains(where: { (t) -> Bool in
-                guard let value = navigationController?.topViewController else { return false }
-                return type(of: value) == t
-            })
-            panGesture.isEnabled = !gestureDisable
+            updateGesture()
         }
+    }
+    private func updateGesture() {
+        let gestureDisable =  disableDragViewControllers.contains(where: { (t) -> Bool in
+            guard let value = navigationController?.topViewController else { return false }
+            return type(of: value) == t
+        })
+        panGesture.isEnabled = !gestureDisable
     }
     
     private(set) var interacting = false
     var transitioning: ((Bool) -> ())?
     
     private var start = false
-    let panGesture = UIPanGestureRecognizer(target: self, action: #selector(RainbowDragPop.handlePan(_:)))
+    
+    lazy var panGesture: UIPanGestureRecognizer = {
+        let p = UIPanGestureRecognizer(target: self, action: #selector(RainbowDragPop.handlePan(_:)))
+        return p
+    }()
     weak var navigationController: UINavigationController! {
         didSet {
             navigationController?.view.addGestureRecognizer(panGesture)
@@ -61,12 +72,12 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
         case .ended:
             if start == false { return }
             transitioning?(false)
-            start = false
             if interacting {
                 let canFinish = (offset.x / panGesture.view!.bounds.width) > 0.5
                 let slieToEnd = panGesture.velocity(in: panGesture.view!).x > 0
                 if canFinish || slieToEnd {
                     popAnimator.finish()
+                    updateGesture()
                     finish()
                 } else {
                     popAnimator.cancel()
@@ -74,6 +85,7 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
                 }
                 interacting = false
             }
+            start = false
         case .cancelled:
             if interacting {
                 popAnimator.cancel()

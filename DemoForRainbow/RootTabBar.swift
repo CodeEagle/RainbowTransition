@@ -7,9 +7,7 @@
 //
 
 import UIKit
-#if !PACKING_FOR_APPSTORE
-    import RainbowTransition
-#endif
+
 
 final class RootTabBar: UITabBarController {
 

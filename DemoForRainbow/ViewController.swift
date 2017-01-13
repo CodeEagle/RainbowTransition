@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RainbowTransition
+
 
 class ViewController: UIViewController, RainbowColorSource {
 
@@ -133,6 +133,7 @@ class DTBViewController: UIViewController, RainbowColorSource {
         tableView.tableHeaderView = v
         tableView.delegate = self
         tableView.dataSource = self
+        fd_interactivePopDisabled = true
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         //fd_interactivePopDisabled = true
         // Do any additional setup after loading the view, typically from a nib.
