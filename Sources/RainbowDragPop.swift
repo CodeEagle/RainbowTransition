@@ -31,9 +31,16 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
     
     private var start = false
     
-    lazy var panGesture: UIPanGestureRecognizer = {
-        let p = UIPanGestureRecognizer(target: self, action: #selector(RainbowDragPop.handlePan(_:)))
-        return p
+    lazy var panGesture: UIGestureRecognizer = {
+        
+        if #available(iOS 9.0, *) {
+            let p = UIPanGestureRecognizer(target: self, action: #selector(RainbowDragPop.handlePan(_:)))
+            return p
+        } else {
+            let p = UIScreenEdgePanGestureRecognizer(target: self, action: #selector(RainbowDragPop.handlePan(_:)))
+            p.edges = .left
+            return p
+        }
     }()
     weak var navigationController: UINavigationController! {
         didSet {
