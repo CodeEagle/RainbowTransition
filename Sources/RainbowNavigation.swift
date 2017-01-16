@@ -37,7 +37,9 @@ final class RainbowNavigation: NSObject, UINavigationControllerDelegate {
 
     func wireTo(navigationController nc: UINavigationController) {
         navigationController = nc
-        dragPop.navigationController = nc
+        if #available(iOS 9.0, *) {
+            dragPop.navigationController = nc
+        }
         navigationController?.delegate = self
     }
 

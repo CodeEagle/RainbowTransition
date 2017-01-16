@@ -8,10 +8,6 @@
 import UIKit
 import KVOBlock
 final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
-
-    deinit {
-        print("fuck")
-    }
     
     var disableDragViewControllers: [UIViewController.Type] = [] {
         didSet {

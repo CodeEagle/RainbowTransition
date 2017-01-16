@@ -24,9 +24,6 @@ final class RainbowPushAnimator: NSObject, UIViewControllerAnimatedTransitioning
 
         let containerView = transitionContext.containerView
         
-        
-        
-        
         containerView.addSubview(toVC.view)
         
         // Layout
