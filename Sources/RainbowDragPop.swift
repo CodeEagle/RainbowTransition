@@ -80,8 +80,8 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
                 let slieToEnd = panGesture.velocity(in: panGesture.view!).x > 0
                 if canFinish || slieToEnd {
                     popAnimator.finish()
-                    updateGesture()
                     finish()
+                    updateGesture()
                 } else {
                     popAnimator.cancel()
                     cancel()
