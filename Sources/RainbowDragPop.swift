@@ -14,14 +14,18 @@ final class RainbowDragPop: UIPercentDrivenInteractiveTransition {
             updateGesture()
         }
     }
+    
     private func updateGesture() {
         let gestureDisable =  disableDragViewControllers.contains(where: { (t) -> Bool in
             guard var value = navigationController?.topViewController else { return false }
             if let root = value as? UITabBarController, let top = root.selectedViewController {
+//                print("top viewcontroller:\(top)")
                 value = top
             }
+//            print("type(of: value)[\(type(of: value))] == t\(t),\(type(of: value) == t)")
             return type(of: value) == t
         })
+//        print("gestureDisable: \(gestureDisable)")
         panGesture.isEnabled = !gestureDisable
     }
     

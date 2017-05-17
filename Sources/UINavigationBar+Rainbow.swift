@@ -39,11 +39,13 @@ extension UINavigationController {
     }
     
     public func disableDrag(in vc: UIViewController.Type) {
-        if rainbow?.disableDragViewControllers.contains(where: { (t) -> Bool in return vc == t }) == false {
-            rainbow?.disableDragViewControllers.append(vc)
+        guard var copy = rainbow?.disableDragViewControllers else { return }
+        if let index = copy.index(where: { (t) -> Bool in return vc == t }) {
+            copy.remove(at: index)
         }
+        copy.append(vc)
+        rainbow?.disableDragViewControllers = copy
     }
-
 }
 
 private class Wrapper { fileprivate weak var vc: UIViewController? }
