@@ -59,6 +59,7 @@ extension UINavigationController {
         parenet.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.directionLeftToRight, metrics: nil, views: ["bgg": bgg]))
         bgg.tag = 9854
         bgg.backgroundColor = color
+        bgg.shadowParent = barBackgroundView.layer
         bgg.enableShadow(enable: enable)
     }
     
@@ -361,8 +362,9 @@ extension UIViewController {
 }
 // MARK: - NavigationBarrOverlay
 private final class NavigationBarrOverlay: UIView {
+    weak var shadowParent: CALayer?
     
-    private lazy var shadowMask: CAGradientLayer = {
+    lazy var shadowMask: CAGradientLayer = {
         let gMask = CAGradientLayer()
         gMask.colors = [UIColor(white: 0, alpha: 0.4).cgColor, UIColor.clear.cgColor]
         gMask.locations = [0, 1]
@@ -376,7 +378,7 @@ private final class NavigationBarrOverlay: UIView {
     fileprivate func enableShadow(enable: Bool = true) {
         if enable {
             if shadowMask.superlayer != layer {
-                layer.addSublayer(shadowMask)
+                shadowParent?.addSublayer(shadowMask)
             }
         } else {
             shadowMask.removeFromSuperlayer()
@@ -396,8 +398,7 @@ private final class NavigationBarrOverlay: UIView {
     private func initialize() {
         isUserInteractionEnabled = false
         translatesAutoresizingMaskIntoConstraints = false
-        layer.addSublayer(shadowMask)
-        backgroundColor = UIColor.white
+        shadowParent?.addSublayer(shadowMask)
     }
     
     fileprivate override func layoutSubviews() {
@@ -409,8 +410,8 @@ private final class NavigationBarrOverlay: UIView {
         let alpha = Float(value.cgColor.alpha)
         if drag { shadowMask.opacity = 1 - alpha }
         else {
-            shadowMask.opacity = 0
-            if alpha == 0 {
+            if alpha != 0 { shadowMask.opacity = 0 }
+            else if shadowMask.opacity != 1 {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 0.2, execute: {[weak self] in
                     self?.shadowMask.opacity = 1
                 })

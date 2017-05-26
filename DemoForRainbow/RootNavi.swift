@@ -42,7 +42,7 @@ final class RootNavi: UINavigationController {
         view.backgroundColor = UIColor.white
         fd_fullscreenPopGestureRecognizer.isEnabled = true
         interactivePopGestureRecognizer?.isEnabled = true
-        enableRainbowTransition(with: .clear, shadow: false)
+        enableRainbowTransition(with: .white, shadow: true)
     }
 
     override func didReceiveMemoryWarning() {
