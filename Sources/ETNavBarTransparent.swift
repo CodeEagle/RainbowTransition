@@ -54,11 +54,12 @@ extension UINavigationController {
                 }
             }
         }
-            parenet.addSubview(bgg)
-            parenet.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: ["bgg": bgg]))
-            parenet.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.directionLeftToRight, metrics: nil, views: ["bgg": bgg]))
-            bgg.tag = 9854
-        
+        parenet.addSubview(bgg)
+        parenet.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: ["bgg": bgg]))
+        parenet.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.directionLeftToRight, metrics: nil, views: ["bgg": bgg]))
+        bgg.tag = 9854
+        bgg.backgroundColor = color
+        bgg.enableShadow(enable: enable)
     }
     
     fileprivate var lo_bg: NavigationBarrOverlay? {
