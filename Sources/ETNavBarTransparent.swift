@@ -274,7 +274,7 @@ extension UIViewController {
     fileprivate struct AssociatedKeys {
         static var navBarBgShadow: String = "navBarBgShadow"
         static var navBarBgAlpha: CGFloat = 1.0
-        static var navBarTintColor: UIColor = UIColor.defaultNavBarTintColor
+        static var navBarTintColor: UIColor = UIColor.white
         static var navBarBGColor: UIColor = UIColor.white
         static var bg = "bg"
         static var poping = "poping"
@@ -312,7 +312,7 @@ extension UIViewController {
     public var navBarTintColor: UIColor {
         get {
             guard let tintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarTintColor) as? UIColor else {
-                return UIColor.defaultNavBarTintColor
+                return UIColor.white
             }
             return tintColor
         }
