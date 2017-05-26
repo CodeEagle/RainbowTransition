@@ -345,7 +345,10 @@ extension UIViewController {
     }
     
     public func transparent(with scroll: UIScrollView?, total distance: CGFloat = 200, force: Bool = false) {
-        guard let value = scroll, lo_ob == false, force == false else { return }
+        guard let value = scroll else { return }
+        if force == false, lo_ob == true {
+            return
+        }
         lo_ob = true
         value.observeKeyPath(AssociatedKeys.keyPath, with: {[weak self]
             target, oldValue, newValue in
