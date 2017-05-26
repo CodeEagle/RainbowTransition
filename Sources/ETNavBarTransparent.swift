@@ -344,8 +344,8 @@ extension UIViewController {
         set { objc_setAssociatedObject(self, &AssociatedKeys.scrollView, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
     
-    public func transparent(with scroll: UIScrollView?, total distance: CGFloat = 200) {
-        guard let value = scroll, lo_ob == false  else { return }
+    public func transparent(with scroll: UIScrollView?, total distance: CGFloat = 200, force: Bool = false) {
+        guard let value = scroll, lo_ob == false, force == false else { return }
         lo_ob = true
         value.observeKeyPath(AssociatedKeys.keyPath, with: {[weak self]
             target, oldValue, newValue in
