@@ -85,7 +85,7 @@ final class RootTabBar: UITabBarController {
         return selectedViewController?.preferredStatusBarStyle ?? .default
     }
 }
-extension RootTabBar: RainbowColorSource {
+extension RootTabBar {
     func navigationBarInColor() -> UIColor {
         return .clear
     }

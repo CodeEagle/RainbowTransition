@@ -9,15 +9,16 @@
 import UIKit
 
 
-class ViewController: UIViewController, RainbowColorSource {
+class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let v = UIView(frame: UIScreen.main.bounds)
         v.backgroundColor = .white
         view.addSubview(v)
-        fd_interactivePopDisabled = true
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .search, target: self, action: #selector(ViewController.p))
+        navBarBgAlpha = 0
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -27,12 +28,10 @@ class ViewController: UIViewController, RainbowColorSource {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.disableDrag(in: type(of: self))
+//        navigationController?.disableDrag(in: type(of: self))
     }
 
-    func navigationBarInColor() -> UIColor {
-        return .clear
-    }
+    
     
     @IBAction func p() {
         let vc = TBViewController(nibName: nil, bundle: nil)
@@ -41,7 +40,7 @@ class ViewController: UIViewController, RainbowColorSource {
 }
 
 
-class TBViewController: UIViewController, RainbowColorSource {
+class TBViewController: UIViewController {
     
     private lazy var tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
     
@@ -61,7 +60,7 @@ class TBViewController: UIViewController, RainbowColorSource {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableView)
-        navigationController?.navigationBar.shadow(enable: true)
+//        navigationController?.navigationBar.shadow(enable: true)
         view.backgroundColor = .white
         automaticallyAdjustsScrollViewInsets = false
         collectionview.backgroundColor = .green
@@ -69,8 +68,12 @@ class TBViewController: UIViewController, RainbowColorSource {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        tableView.statusBarResponder = self
-        fd_interactivePopDisabled = true
+        
+        navBarTintColor = .blue
+        navBarBgAlpha = 0
+        navBarBgShadow = true
+        navBarBGColor = .green
+        transparent(with: tableView)
         //fd_interactivePopDisabled = true
         // Do any additional setup after loading the view, typically from a nib.
         
@@ -78,20 +81,13 @@ class TBViewController: UIViewController, RainbowColorSource {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.transparent(with: tableView)
-        navigationController?.disableDrag(in: TBViewController.self)
+        
+//        navigationController?.disableDrag(in: TBViewController.self)
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        navigationController?.navigationBar.shadow(enable: false)
-    }
-
-    func navigationBarInColor() -> UIColor {
-        return tableView.alphaColor
-    }
+   
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
-        return tableView.alphaColor.cgColor.alpha > 0.6 ? .default : .lightContent
+        return navBarBgAlpha > 0.6 ? .default : .lightContent
     }
 }
 extension TBViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -145,7 +141,7 @@ extension TBViewController: UITableViewDataSource, UITableViewDelegate {
 
 
 
-class DTBViewController: UIViewController, RainbowColorSource {
+class DTBViewController: UIViewController {
     
     private lazy var tableView = UITableView(frame: UIScreen.main.bounds, style: .plain)
     
@@ -159,20 +155,21 @@ class DTBViewController: UIViewController, RainbowColorSource {
         tableView.tableHeaderView = v
         tableView.delegate = self
         tableView.dataSource = self
-        fd_interactivePopDisabled = true
+        
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        navBarBgAlpha = 0
+        navBarTintColor = .orange
+        navBarBgShadow = false
+        transparent(with: tableView)
         //fd_interactivePopDisabled = true
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        navigationController?.navigationBar.transparent(with: tableView)
     }
     
-    func navigationBarInColor() -> UIColor {
-        return tableView.alphaColor
-    }
+   
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent

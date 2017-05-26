@@ -7,22 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		10285E241E28A0BF00C463D3 /* RainbowDragPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */; };
-		10285E251E28A0BF00C463D3 /* RainbowNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */; };
-		10285E261E28A0BF00C463D3 /* RainbowPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */; };
-		10285E271E28A0BF00C463D3 /* RainbowPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */; };
-		10285E281E28A0BF00C463D3 /* UINavigationBar+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */; };
+		100A16D01ED7FB0B006C2B9D /* ETNavBarTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100A16CF1ED7FB0B006C2B9D /* ETNavBarTransparent.swift */; };
+		100A16D11ED7FBF6006C2B9D /* ETNavBarTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100A16CF1ED7FB0B006C2B9D /* ETNavBarTransparent.swift */; };
 		108A6F051E13B57B005519BC /* FDFullscreenPopGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108A6F041E13B57B005519BC /* FDFullscreenPopGesture.framework */; };
 		168BED1C1DC9C41200D85E62 /* RainbowTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 168BED1A1DC9C41200D85E62 /* RainbowTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		168BED291DC9C4B000D85E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED281DC9C4B000D85E62 /* AppDelegate.swift */; };
 		168BED2B1DC9C4B000D85E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED2A1DC9C4B000D85E62 /* ViewController.swift */; };
 		168BED301DC9C4B000D85E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 168BED2F1DC9C4B000D85E62 /* Assets.xcassets */; };
 		168BED331DC9C4B000D85E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168BED311DC9C4B000D85E62 /* LaunchScreen.storyboard */; };
-		168BED3E1DC9C4EF00D85E62 /* RainbowDragPop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */; };
-		168BED3F1DC9C4EF00D85E62 /* RainbowNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */; };
-		168BED401DC9C4EF00D85E62 /* RainbowPopAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */; };
-		168BED411DC9C4EF00D85E62 /* RainbowPushAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */; };
-		168BED421DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */; };
 		168BED451DC9C50D00D85E62 /* RootNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED431DC9C50D00D85E62 /* RootNavi.swift */; };
 		168BED461DC9C50D00D85E62 /* RootTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED441DC9C50D00D85E62 /* RootTabBar.swift */; };
 		292A02F9791E7EF88C82998A /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
@@ -30,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		100A16CF1ED7FB0B006C2B9D /* ETNavBarTransparent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ETNavBarTransparent.swift; sourceTree = "<group>"; };
 		108A6F041E13B57B005519BC /* FDFullscreenPopGesture.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FDFullscreenPopGesture.framework; path = Carthage/Build/iOS/FDFullscreenPopGesture.framework; sourceTree = "<group>"; };
 		16297D421DC9DACF001137F6 /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
 		168BED171DC9C41200D85E62 /* RainbowTransition.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = RainbowTransition.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,11 +34,6 @@
 		168BED2F1DC9C4B000D85E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		168BED321DC9C4B000D85E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		168BED341DC9C4B000D85E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowDragPop.swift; sourceTree = "<group>"; };
-		168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowNavigation.swift; sourceTree = "<group>"; };
-		168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowPopAnimator.swift; sourceTree = "<group>"; };
-		168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RainbowPushAnimator.swift; sourceTree = "<group>"; };
-		168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationBar+Rainbow.swift"; sourceTree = "<group>"; };
 		168BED431DC9C50D00D85E62 /* RootNavi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootNavi.swift; sourceTree = "<group>"; };
 		168BED441DC9C50D00D85E62 /* RootTabBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RootTabBar.swift; sourceTree = "<group>"; };
 		56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KVOBlock.framework; path = Carthage/Build/iOS/KVOBlock.framework; sourceTree = "<group>"; };
@@ -119,11 +107,7 @@
 		168BED381DC9C4EF00D85E62 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				168BED391DC9C4EF00D85E62 /* RainbowDragPop.swift */,
-				168BED3A1DC9C4EF00D85E62 /* RainbowNavigation.swift */,
-				168BED3B1DC9C4EF00D85E62 /* RainbowPopAnimator.swift */,
-				168BED3C1DC9C4EF00D85E62 /* RainbowPushAnimator.swift */,
-				168BED3D1DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift */,
+				100A16CF1ED7FB0B006C2B9D /* ETNavBarTransparent.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -271,11 +255,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				168BED401DC9C4EF00D85E62 /* RainbowPopAnimator.swift in Sources */,
-				168BED411DC9C4EF00D85E62 /* RainbowPushAnimator.swift in Sources */,
-				168BED3F1DC9C4EF00D85E62 /* RainbowNavigation.swift in Sources */,
-				168BED421DC9C4EF00D85E62 /* UINavigationBar+Rainbow.swift in Sources */,
-				168BED3E1DC9C4EF00D85E62 /* RainbowDragPop.swift in Sources */,
+				100A16D01ED7FB0B006C2B9D /* ETNavBarTransparent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,14 +264,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				168BED451DC9C50D00D85E62 /* RootNavi.swift in Sources */,
-				10285E271E28A0BF00C463D3 /* RainbowPushAnimator.swift in Sources */,
 				168BED2B1DC9C4B000D85E62 /* ViewController.swift in Sources */,
-				10285E241E28A0BF00C463D3 /* RainbowDragPop.swift in Sources */,
-				10285E281E28A0BF00C463D3 /* UINavigationBar+Rainbow.swift in Sources */,
 				168BED291DC9C4B000D85E62 /* AppDelegate.swift in Sources */,
-				10285E251E28A0BF00C463D3 /* RainbowNavigation.swift in Sources */,
+				100A16D11ED7FBF6006C2B9D /* ETNavBarTransparent.swift in Sources */,
 				168BED461DC9C50D00D85E62 /* RootTabBar.swift in Sources */,
-				10285E261E28A0BF00C463D3 /* RainbowPopAnimator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

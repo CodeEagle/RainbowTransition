@@ -41,6 +41,7 @@ final class RootNavi: UINavigationController {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
         fd_fullscreenPopGestureRecognizer.isEnabled = true
+        interactivePopGestureRecognizer?.isEnabled = true
         enableRainbowTransition(with: .clear, shadow: false)
     }
 

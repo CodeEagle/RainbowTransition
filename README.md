@@ -8,7 +8,7 @@ RainbowTransition
 <pre align="center">An easy way to change backgroundColor of UINavigationBar when Push & Pop, or scrolling a scrollview</pre>
 </p>
 
-Base on project [RainbowNavigation](https://github.com/DanisFabric/RainbowNavigation)
+Base on project [ETNavBarTransparent](https://github.com/EnderTan/ETNavBarTransparent)
 ---
 
 
