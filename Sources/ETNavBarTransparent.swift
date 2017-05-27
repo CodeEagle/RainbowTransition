@@ -88,6 +88,20 @@ extension UINavigationController {
         lo_bg?.enableShadow(enable: enable)
     }
     
+    public var globalNavBarTintColor: UIColor {
+        get {
+            guard let tintColor = objc_getAssociatedObject(self, &AssociatedKeys.globalNavBarTintColor) as? UIColor else {
+                return UIColor.defaultNavBarTintColor
+            }
+            return tintColor
+        }
+        set {
+            navigationController?.navigationBar.tintColor = newValue
+            objc_setAssociatedObject(self, &AssociatedKeys.globalNavBarTintColor, newValue, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        }
+    }
+    
+    
     override open var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
     }
@@ -133,8 +147,8 @@ extension UINavigationController {
         enableShadow(enable: toViewController?.navBarBgShadow ?? false)
         
         // Tint Color
-        let fromColor = fromViewController?.navBarTintColor ?? .blue
-        let toColor = toViewController?.navBarTintColor ?? .blue
+        let fromColor = fromViewController?.navBarTintColor ?? globalNavBarTintColor
+        let toColor = toViewController?.navBarTintColor ?? globalNavBarTintColor
         let newColor = averageColor(fromColor: fromColor, toColor: toColor, percent: percentComplete)
         navigationBar.tintColor = newColor
         let midColor = averageColor(fromColor: (fromViewController?.navBarBGColor ?? .white), toColor: (toViewController?.navBarBGColor ?? .white), percent: percentComplete)
@@ -168,7 +182,7 @@ extension UINavigationController {
         setNeedsNavigationBackground(alpha: viewController.navBarBgAlpha)
         let color = viewController.navBarBGColor
         lo_bg?.update(color: color.withAlphaComponent(viewController.navBarBgAlpha), drag: lo_poping)
-        navigationBar.tintColor = viewController.navBarTintColor
+        navigationBar.tintColor = viewController.navBarTintColor ?? globalNavBarTintColor
         return et_popToViewController(viewController, animated: animated)
     }
     
@@ -177,7 +191,7 @@ extension UINavigationController {
         setNeedsNavigationBackground(alpha: alpha)
         let color = viewControllers.first?.navBarBGColor ?? .white
         lo_bg?.update(color: color.withAlphaComponent(alpha), drag: lo_poping)
-        navigationBar.tintColor = viewControllers.first?.navBarTintColor
+        navigationBar.tintColor = viewControllers.first?.navBarTintColor ?? globalNavBarTintColor
         return et_popToRootViewControllerAnimated(animated)
     }
     
@@ -237,7 +251,7 @@ extension UINavigationController: UINavigationBarDelegate {
         setNeedsNavigationBackground(alpha: topViewController?.navBarBgAlpha ?? 0)
         enableShadow(enable: topViewController?.navBarBgShadow ?? false)
         lo_bg?.update(color: (topViewController?.navBarBGColor ?? .white).withAlphaComponent(topViewController?.navBarBgAlpha ?? 1), drag: false)
-        navigationBar.tintColor = topViewController?.navBarTintColor
+        navigationBar.tintColor = topViewController?.navBarTintColor ?? globalNavBarTintColor
         return true
     }
     
@@ -245,7 +259,7 @@ extension UINavigationController: UINavigationBarDelegate {
         let animations: (UITransitionContextViewControllerKey) -> () = {
             let nowAlpha = context.viewController(forKey: $0)?.navBarBgAlpha ?? 0
             self.setNeedsNavigationBackground(alpha: nowAlpha)
-            self.navigationBar.tintColor = context.viewController(forKey: $0)?.navBarTintColor
+            self.navigationBar.tintColor = (context.viewController(forKey: $0)?.navBarTintColor) ?? self.globalNavBarTintColor
         }
         
         if context.isCancelled {
@@ -274,7 +288,8 @@ extension UIViewController {
     fileprivate struct AssociatedKeys {
         static var navBarBgShadow: String = "navBarBgShadow"
         static var navBarBgAlpha: CGFloat = 1.0
-        static var navBarTintColor: UIColor = UIColor.white
+        static var globalNavBarTintColor: UIColor = UIColor.defaultNavBarTintColor
+        static var navBarTintColor: UIColor = UIColor.defaultNavBarTintColor
         static var navBarBGColor: UIColor = UIColor.white
         static var bg = "bg"
         static var poping = "poping"
@@ -309,11 +324,9 @@ extension UIViewController {
         }
     }
     
-    public var navBarTintColor: UIColor {
+    public var navBarTintColor: UIColor? {
         get {
-            guard let tintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarTintColor) as? UIColor else {
-                return UIColor.white
-            }
+            let tintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarTintColor) as? UIColor
             return tintColor
         }
         set {
