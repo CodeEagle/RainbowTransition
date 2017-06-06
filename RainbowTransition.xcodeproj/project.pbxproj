@@ -18,6 +18,7 @@
 		168BED451DC9C50D00D85E62 /* RootNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED431DC9C50D00D85E62 /* RootNavi.swift */; };
 		168BED461DC9C50D00D85E62 /* RootTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED441DC9C50D00D85E62 /* RootTabBar.swift */; };
 		292A02F9791E7EF88C82998A /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
+		5846D7046EFEC47D8A4E8E60 /* FDFullscreenPopGesture.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 108A6F041E13B57B005519BC /* FDFullscreenPopGesture.framework */; };
 		9300D02BEAE2C97951DD1F29 /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5846D7046EFEC47D8A4E8E60 /* FDFullscreenPopGesture.framework in Frameworks */,
 				292A02F9791E7EF88C82998A /* KVOBlock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -52,8 +54,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9300D02BEAE2C97951DD1F29 /* KVOBlock.framework in Frameworks */,
 				108A6F051E13B57B005519BC /* FDFullscreenPopGesture.framework in Frameworks */,
+				9300D02BEAE2C97951DD1F29 /* KVOBlock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,7 +162,7 @@
 				168BED221DC9C4B000D85E62 /* Sources */,
 				168BED231DC9C4B000D85E62 /* Frameworks */,
 				168BED241DC9C4B000D85E62 /* Resources */,
-				B60FD7EF0556FBA41C084F1E /* 🤖Carthage */,
+				A0A949D35478B749C45A2622 /* 🤖Carthage */,
 			);
 			buildRules = (
 			);
@@ -232,14 +234,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		B60FD7EF0556FBA41C084F1E /* 🤖Carthage */ = {
+		A0A949D35478B749C45A2622 /* 🤖Carthage */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"$(SRCROOT)/Carthage/Build/iOS/KVOBlock.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/FDFullscreenPopGesture.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/KVOBlock.framework",
 			);
 			name = "🤖Carthage";
 			outputPaths = (
@@ -247,6 +249,7 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "/usr/local/bin/carthage copy-frameworks";
+			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 

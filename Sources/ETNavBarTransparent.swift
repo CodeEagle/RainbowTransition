@@ -58,13 +58,13 @@ extension UINavigationController {
         var parenet = barBackgroundView
         if navigationBar.isTranslucent {
             if #available(iOS 10.0, *) {
-                if let backgroundEffectView = valueForKey("_backgroundEffectView") as? UIView, navigationBar.backgroundImage(for: .default) == nil {
-                    parenet = backgroundEffectView
+                if let backgroundEffectView = valueForKey("_backgroundEffectView") as? UIVisualEffectView, navigationBar.backgroundImage(for: .default) == nil {
+                    parenet = backgroundEffectView.contentView
                 }
                 
             } else {
-                if let adaptiveBackdrop = valueForKey("_adaptiveBackdrop") as? UIView , let backdropEffectView = adaptiveBackdrop.value(forKey: "_backdropEffectView") as? UIView {
-                    parenet = backdropEffectView
+                if let adaptiveBackdrop = valueForKey("_adaptiveBackdrop") as? UIView , let backdropEffectView = adaptiveBackdrop.value(forKey: "_backdropEffectView") as? UIVisualEffectView {
+                    parenet = backdropEffectView.contentView
                 }
             }
         }
