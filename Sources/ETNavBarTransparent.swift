@@ -22,11 +22,7 @@ extension DispatchQueue {
     public class func once(token: String, block: () -> Void) {
         objc_sync_enter(self)
         defer { objc_sync_exit(self) }
-        
-        if onceTracker.contains(token) {
-            return
-        }
-        
+        if onceTracker.contains(token) { return }
         onceTracker.append(token)
         block()
     }
@@ -38,25 +34,11 @@ extension UINavigationController {
     public func enableRainbowTransition(with color: UIColor = .white, shadow enable: Bool = true) {
         UINavigationController._initialize()
         let bgg = NavigationBarrOverlay(frame: .zero)
-        let barBackgroundView = navigationBar.subviews[0]
-        let valueForKey = barBackgroundView.value(forKey:)
-        var parenet: UIView = barBackgroundView
-        if navigationBar.isTranslucent {
-            if #available(iOS 10.0, *) {
-                if let backgroundEffectView = valueForKey("_backgroundEffectView") as? UIView, navigationBar.backgroundImage(for: .default) == nil {
-                    parenet = backgroundEffectView
-                }
-                
-            } else {
-                if let adaptiveBackdrop = valueForKey("_adaptiveBackdrop") as? UIView , let backdropEffectView = adaptiveBackdrop.value(forKey: "_backdropEffectView") as? UIView {
-                    parenet = backdropEffectView
-                    return
-                }
-            }
-        }
-        parenet.addSubview(bgg)
-        parenet.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: ["bgg": bgg]))
-        parenet.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.directionLeftToRight, metrics: nil, views: ["bgg": bgg]))
+        let parent = getBarView().0
+        let barBackgroundView = getBarView().1
+        parent.addSubview(bgg)
+        parent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.alignAllTop, metrics: nil, views: ["bgg": bgg]))
+        parent.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|-0-[bgg]-0-|", options: NSLayoutFormatOptions.directionLeftToRight, metrics: nil, views: ["bgg": bgg]))
         bgg.tag = 9854
         bgg.backgroundColor = color
         bgg.shadowParent = barBackgroundView.layer
@@ -65,23 +47,28 @@ extension UINavigationController {
     
     fileprivate var lo_bg: NavigationBarrOverlay? {
         get {
-            let barBackgroundView = navigationBar.subviews[0]
-            let valueForKey = barBackgroundView.value(forKey:)
-            var parenet = barBackgroundView
-            if navigationBar.isTranslucent {
-                if #available(iOS 10.0, *) {
-                    if let backgroundEffectView = valueForKey("_backgroundEffectView") as? UIView, navigationBar.backgroundImage(for: .default) == nil {
-                        parenet = backgroundEffectView
-                    }
-                    
-                } else {
-                    if let adaptiveBackdrop = valueForKey("_adaptiveBackdrop") as? UIView , let backdropEffectView = adaptiveBackdrop.value(forKey: "_backdropEffectView") as? UIView {
-                        parenet = backdropEffectView
-                    }
+            let parent = getBarView().0
+            return parent.viewWithTag(9854) as? NavigationBarrOverlay
+        }
+    }
+    
+    private func getBarView()->(UIView, UIView){
+        let barBackgroundView = navigationBar.subviews[0]
+        let valueForKey = barBackgroundView.value(forKey:)
+        var parenet = barBackgroundView
+        if navigationBar.isTranslucent {
+            if #available(iOS 10.0, *) {
+                if let backgroundEffectView = valueForKey("_backgroundEffectView") as? UIVisualEffectView, navigationBar.backgroundImage(for: .default) == nil {
+                    parenet = backgroundEffectView.contentView
+                }
+                
+            } else {
+                if let adaptiveBackdrop = valueForKey("_adaptiveBackdrop") as? UIView , let backdropEffectView = adaptiveBackdrop.value(forKey: "_backdropEffectView") as? UIVisualEffectView {
+                    parenet = backdropEffectView.contentView
                 }
             }
-            return parenet.viewWithTag(9854) as? NavigationBarrOverlay
         }
+        return (parenet, barBackgroundView)
     }
     
     public func enableShadow(enable: Bool = true) {
@@ -109,27 +96,27 @@ extension UINavigationController {
     private static let onceToken = UUID().uuidString
     
     internal static func _initialize() {
-      guard self == UINavigationController.self else { return }
-      
-      DispatchQueue.once(token: onceToken) {
-        let needSwizzleSelectorArr = [
-          NSSelectorFromString("_updateInteractiveTransition:"),
-          #selector(popToViewController),
-          #selector(popToRootViewController)
-        ]
+        guard self == UINavigationController.self else { return }
         
-        for selector in needSwizzleSelectorArr {
-          
-          let str = ("et_" + selector.description).replacingOccurrences(of: "__", with: "_")
-          // popToRootViewControllerAnimated: et_popToRootViewControllerAnimated:
-          
-          let originalMethod = class_getInstanceMethod(self, selector)
-          let swizzledMethod = class_getInstanceMethod(self, Selector(str))
-          method_exchangeImplementations(originalMethod, swizzledMethod)
+        DispatchQueue.once(token: onceToken) {
+            let needSwizzleSelectorArr = [
+                NSSelectorFromString("_updateInteractiveTransition:"),
+                #selector(popToViewController),
+                #selector(popToRootViewController)
+            ]
+            
+            for selector in needSwizzleSelectorArr {
+                let str = ("et_" + selector.description).replacingOccurrences(of: "__", with: "_")
+                // popToRootViewControllerAnimated: et_popToRootViewControllerAnimated:
+                let originalMethod = class_getInstanceMethod(self, selector)
+                let swizzledMethod = class_getInstanceMethod(self, Selector(str))
+                method_exchangeImplementations(originalMethod, swizzledMethod)
+            }
         }
-      }
     }
-  
+    
+    
+    //MARK: swizzMethod
     func et_updateInteractiveTransition(_ percentComplete: CGFloat) {
         guard let topViewController = topViewController, let coordinator = topViewController.transitionCoordinator else {
             et_updateInteractiveTransition(percentComplete)
@@ -227,13 +214,13 @@ extension UINavigationController: UINavigationBarDelegate {
     public func navigationBar(_ navigationBar: UINavigationBar, shouldPop item: UINavigationItem) -> Bool {
         if let topVC = topViewController, let coor = topVC.transitionCoordinator, coor.initiallyInteractive {
             if #available(iOS 10.0, *) {
-                coor.notifyWhenInteractionChanges({ (context) in
+                coor.notifyWhenInteractionChanges{ (context) in
                     self.dealInteractionChanges(context)
-                })
+                }
             } else {
-                coor.notifyWhenInteractionEnds({ (context) in
+                coor.notifyWhenInteractionEnds{ (context) in
                     self.dealInteractionChanges(context)
-                })
+                }
             }
             return true
         }
@@ -269,7 +256,7 @@ extension UINavigationController: UINavigationBarDelegate {
             let shadow = context.viewController(forKey: .from)?.navBarBgShadow ?? false
             enableShadow(enable: shadow)
             lo_bg?.update(color: (topViewController?.navBarBGColor ?? .white).withAlphaComponent(topViewController?.navBarBgAlpha ?? 1), drag: false)
-            UIView.animate(withDuration: cancelDuration, animations: { 
+            UIView.animate(withDuration: cancelDuration, animations: {
                 animations(.from)
             }, completion: { (b) in
                 vc?.lo_poping = false
@@ -299,9 +286,7 @@ extension UIViewController {
     
     public var navBarBgShadow: Bool {
         get {
-            guard let value = objc_getAssociatedObject(self, &AssociatedKeys.navBarBgShadow) as? Bool else {
-                return false
-            }
+            guard let value = objc_getAssociatedObject(self, &AssociatedKeys.navBarBgShadow) as? Bool else { return false }
             return value
         }
         set {
@@ -312,9 +297,7 @@ extension UIViewController {
     
     public var navBarBgAlpha: CGFloat {
         get {
-            guard let alpha = objc_getAssociatedObject(self, &AssociatedKeys.navBarBgAlpha) as? CGFloat else {
-                return 1.0
-            }
+            guard let alpha = objc_getAssociatedObject(self, &AssociatedKeys.navBarBgAlpha) as? CGFloat else { return 1.0 }
             return alpha
         }
         set {

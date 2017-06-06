@@ -18,9 +18,6 @@ Features
 - [x] changing navigationbar's background alpha associate with scrollview optionally
 - [x] sending `setNeedsStatusBarAppearanceUpdate` for customizing `statusbar`
 
-⚠️Caveat
----
-- [x] disable fullscreen pop gesture in viewcontroller that needs transition
 
 Usage
 ---
