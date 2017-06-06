@@ -32,10 +32,10 @@ Demo
 <p align="center">
 <img src="./demo.gif" width=320/>
 </p>
-install
----
 
-###Carthage
+installtion
+---
+### Carthage
 ```
 github "CodeEagle/RainbowTransition"
 ```
