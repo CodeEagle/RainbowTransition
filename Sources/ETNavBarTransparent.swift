@@ -343,6 +343,7 @@ extension UIViewController {
             return
         }
         lo_ob = true
+        value.removeObserver(for: AssociatedKeys.keyPath)
         value.observeKeyPath(AssociatedKeys.keyPath, with: { [weak self]
             _, oldValue, newValue in
             guard let navi = self?.navigationController, navi.topViewController == self, self?.lo_poping == false else { return }
@@ -354,6 +355,10 @@ extension UIViewController {
             self?.navBarBgAlpha = a
             self?.setNeedsStatusBarAppearanceUpdate()
         })
+    }
+
+    public func unregister(scollView: UIScrollView?) {
+        scollView?.removeObserver(for: AssociatedKeys.keyPath)
     }
 }
 
