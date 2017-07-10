@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import FDFullscreenPopGesture
+// import FDFullscreenPopGesture
 
 extension RootNavi {
     static var window: UIWindow {
@@ -32,7 +32,7 @@ final class RootNavi: UINavigationController {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     convenience init() {
         self.init(nibName: nil, bundle: nil)
     }
@@ -40,7 +40,7 @@ final class RootNavi: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        fd_fullscreenPopGestureRecognizer.isEnabled = true
+        //        fd_fullscreenPopGestureRecognizer.isEnabled = true
         interactivePopGestureRecognizer?.isEnabled = true
         enableRainbowTransition(with: .white, shadow: true)
     }
@@ -48,7 +48,7 @@ final class RootNavi: UINavigationController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-    
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return topViewController?.preferredStatusBarStyle ?? .default
     }
