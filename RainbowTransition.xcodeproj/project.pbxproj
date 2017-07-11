@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		100A16D01ED7FB0B006C2B9D /* ETNavBarTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100A16CF1ED7FB0B006C2B9D /* ETNavBarTransparent.swift */; };
 		100A16D11ED7FBF6006C2B9D /* ETNavBarTransparent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 100A16CF1ED7FB0B006C2B9D /* ETNavBarTransparent.swift */; };
+		10D016081F146CCF0007EFAC /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
 		168BED1C1DC9C41200D85E62 /* RainbowTransition.h in Headers */ = {isa = PBXBuildFile; fileRef = 168BED1A1DC9C41200D85E62 /* RainbowTransition.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		168BED291DC9C4B000D85E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED281DC9C4B000D85E62 /* AppDelegate.swift */; };
 		168BED2B1DC9C4B000D85E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED2A1DC9C4B000D85E62 /* ViewController.swift */; };
@@ -16,7 +17,6 @@
 		168BED331DC9C4B000D85E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 168BED311DC9C4B000D85E62 /* LaunchScreen.storyboard */; };
 		168BED451DC9C50D00D85E62 /* RootNavi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED431DC9C50D00D85E62 /* RootNavi.swift */; };
 		168BED461DC9C50D00D85E62 /* RootTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 168BED441DC9C50D00D85E62 /* RootTabBar.swift */; };
-		292A02F9791E7EF88C82998A /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
 		9300D02BEAE2C97951DD1F29 /* KVOBlock.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CFBBF0D5357DCF862F55A4 /* KVOBlock.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,7 +42,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				292A02F9791E7EF88C82998A /* KVOBlock.framework in Frameworks */,
+				10D016081F146CCF0007EFAC /* KVOBlock.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -394,6 +394,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = RainbowTransition/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -417,6 +418,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
+				HEADER_SEARCH_PATHS = "";
 				INFOPLIST_FILE = RainbowTransition/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";

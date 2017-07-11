@@ -178,7 +178,7 @@ extension UINavigationController {
         return et_popToRootViewControllerAnimated(animated)
     }
 
-    public func setNeedsNavigationBackground(alpha: CGFloat) {
+    public func setNeedsNavigationBackground(alpha: CGFloat, animated: Bool = false) {
         let barBackgroundView = navigationBar.subviews[0]
         let valueForKey = barBackgroundView.value(forKey:)
         if let shadowView = valueForKey("_shadowView") as? UIView {
@@ -186,21 +186,46 @@ extension UINavigationController {
         }
         let color = topViewController?.navBarBGColor ?? .white
         lo_bg?.update(color: color.withAlphaComponent(alpha), drag: lo_poping)
+        func aniamte(action: @escaping () -> Void) {
+            UIView.animate(withDuration: 0.2) {
+                action()
+            }
+        }
         if navigationBar.isTranslucent {
             if #available(iOS 10.0, *) {
                 if let backgroundEffectView = valueForKey("_backgroundEffectView") as? UIView, navigationBar.backgroundImage(for: .default) == nil {
-                    backgroundEffectView.alpha = alpha
+
+                    if animated {
+                        aniamte {
+                            backgroundEffectView.alpha = alpha
+                        }
+                    } else {
+                        backgroundEffectView.alpha = alpha
+                    }
                     return
                 }
 
             } else {
                 if let adaptiveBackdrop = valueForKey("_adaptiveBackdrop") as? UIView, let backdropEffectView = adaptiveBackdrop.value(forKey: "_backdropEffectView") as? UIView {
-                    backdropEffectView.alpha = alpha
+
+                    if animated {
+                        aniamte {
+                            backdropEffectView.alpha = alpha
+                        }
+                    } else {
+                        backdropEffectView.alpha = alpha
+                    }
                     return
                 }
             }
         }
-        barBackgroundView.alpha = alpha
+        if animated {
+            aniamte {
+                barBackgroundView.alpha = alpha
+            }
+        } else {
+            barBackgroundView.alpha = alpha
+        }
     }
 }
 
@@ -278,7 +303,9 @@ extension UIViewController {
         static var bg = "bg"
         static var poping = "poping"
         static let keyPath = "contentOffset"
+        static var distance = "distance"
         static var scrollView = "_RKeys_.scrollView"
+        static var scrollViewWrapper = "_RKeys_.scrollViewWrapper"
     }
 
     public var navBarBgShadow: Bool {
@@ -337,13 +364,34 @@ extension UIViewController {
         set { objc_setAssociatedObject(self, &AssociatedKeys.scrollView, newValue, .OBJC_ASSOCIATION_RETAIN) }
     }
 
-    public func transparent(with scroll: UIScrollView?, total distance: CGFloat = 200, force: Bool = false) {
-        guard let value = scroll else { return }
-        if force == false, lo_ob == true {
-            return
+    private var lo_distance: CGFloat {
+        get { return (objc_getAssociatedObject(self, &AssociatedKeys.distance) as? CGFloat) ?? 0 }
+        set { objc_setAssociatedObject(self, &AssociatedKeys.distance, newValue, .OBJC_ASSOCIATION_RETAIN) }
+    }
+
+    private var _wrapper: ScrollViewWrapper {
+        get {
+            if let wrapper = objc_getAssociatedObject(self, &AssociatedKeys.scrollViewWrapper) as? ScrollViewWrapper {
+                return wrapper
+            }
+            let wrapper = ScrollViewWrapper()
+            objc_setAssociatedObject(self, &AssociatedKeys.scrollViewWrapper, wrapper, .OBJC_ASSOCIATION_RETAIN)
+            return wrapper
         }
+        set { objc_setAssociatedObject(self, &AssociatedKeys.scrollViewWrapper, newValue, .OBJC_ASSOCIATION_RETAIN) }
+    }
+
+    public func transparent(with scroll: UIScrollView?, total distance: CGFloat = 200, force: Bool = false, setAlphaForFirstTime: Bool = true) {
+        guard let value = scroll else { return }
+        if force == false, lo_ob == true { return }
         lo_ob = true
-        value.removeObserver(for: AssociatedKeys.keyPath)
+
+        if let sc = _wrapper.scrollView { sc.removeObserver(for: AssociatedKeys.keyPath) }
+        _wrapper.scrollView = value
+
+        lo_distance = distance
+
+        var fisrtTime = false
         value.observeKeyPath(AssociatedKeys.keyPath, with: { [weak self]
             _, oldValue, newValue in
             guard let navi = self?.navigationController, navi.topViewController == self, self?.lo_poping == false else { return }
@@ -352,14 +400,30 @@ extension UIViewController {
             var a = v.y / distance
             if a < 0 { a = 0 }
             if a > 1 { a = 1 }
+            if fisrtTime, setAlphaForFirstTime == false {
+                fisrtTime = false
+                return
+            }
             self?.navBarBgAlpha = a
             self?.setNeedsStatusBarAppearanceUpdate()
         })
     }
 
+    public func rt_alpha(for scrollView: UIScrollView) -> CGFloat {
+        if lo_distance == 0 { return 1 }
+        var a = scrollView.contentOffset.y / lo_distance
+        if a < 0 { a = 0 }
+        if a > 1 { a = 1 }
+        return a
+    }
+
     public func unregister(scollView: UIScrollView?) {
         scollView?.removeObserver(for: AssociatedKeys.keyPath)
     }
+}
+
+private final class ScrollViewWrapper {
+    weak var scrollView: UIScrollView?
 }
 
 // MARK: - NavigationBarrOverlay

@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 final class RootTabBar: UITabBarController {
 
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -25,12 +24,12 @@ final class RootTabBar: UITabBarController {
     }
 
     private func initialize() {
-        let empty = UIViewController(nibName: nil, bundle: nil)
+        let empty = TTTViewController(nibName: nil, bundle: nil)
         empty.view.backgroundColor = UIColor.white
         empty.navigationItem.leftBarButtonItem = nil
-        empty.navigationItem.title = "haha empty"
-        empty.title = "haha empty"
-        viewControllers = [ViewController(nibName: nil, bundle: nil) , empty]
+        empty.navigationItem.title = "Scroll"
+        empty.title = "Scroll"
+        viewControllers = [ViewController(nibName: nil, bundle: nil), empty]
         selectedIndex = 0
         DispatchQueue.global().async {
             var needSet = true
@@ -45,7 +44,7 @@ final class RootTabBar: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
+
         // Do any additional setup after loading the view.
     }
 
@@ -61,7 +60,7 @@ final class RootTabBar: UITabBarController {
             super.selectedViewController = newValue
         }
     }
-    
+
     private func updateNaviBar(with vc: UIViewController? = nil) {
         let view = vc ?? selectedViewController
         let item = view?.navigationItem
@@ -71,6 +70,7 @@ final class RootTabBar: UITabBarController {
         topItem?.titleView = item?.titleView
         topItem?.title = item?.title
     }
+
     /*
      // MARK: - Navigation
 
@@ -79,12 +79,13 @@ final class RootTabBar: UITabBarController {
      // Get the new view controller using segue.destinationViewController.
      // Pass the selected object to the new view controller.
      }
-    */
-    
+     */
+
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return selectedViewController?.preferredStatusBarStyle ?? .default
     }
 }
+
 extension RootTabBar {
     func navigationBarInColor() -> UIColor {
         return .clear

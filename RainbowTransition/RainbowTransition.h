@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "KVOBlock.h"
 //! Project version number for RainbowTransition.
 FOUNDATION_EXPORT double RainbowTransitionVersionNumber;
 
@@ -15,5 +15,5 @@ FOUNDATION_EXPORT double RainbowTransitionVersionNumber;
 FOUNDATION_EXPORT const unsigned char RainbowTransitionVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <RainbowTransition/PublicHeader.h>
-
+//#import <RainbowTransition/KVOBlock.h>
 

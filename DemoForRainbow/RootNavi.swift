@@ -12,7 +12,7 @@ import UIKit
 extension RootNavi {
     static var window: UIWindow {
         let win = UIWindow(frame: UIScreen.main.bounds)
-        let tabbar = RootTabBar()
+        let tabbar = TTTViewController(nibName: nil, bundle: nil)
         let navi = RootNavi(rootViewController: tabbar)
         win.rootViewController = navi
         return win
