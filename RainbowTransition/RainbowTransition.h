@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "KVOBlock.h"
 //! Project version number for RainbowTransition.
 FOUNDATION_EXPORT double RainbowTransitionVersionNumber;
 
