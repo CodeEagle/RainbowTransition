@@ -331,6 +331,12 @@ extension UIViewController {
         }
     }
 
+    public func setNavBarBgAlphaAnimated(value: CGFloat) {
+        let alpha = max(min(value, 1), 0) // 必须在 0~1的范围
+        objc_setAssociatedObject(self, &AssociatedKeys.navBarBgAlpha, alpha, .OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+        navigationController?.setNeedsNavigationBackground(alpha: value, animated: true)
+    }
+
     public var navBarTintColor: UIColor? {
         get {
             let tintColor = objc_getAssociatedObject(self, &AssociatedKeys.navBarTintColor) as? UIColor
